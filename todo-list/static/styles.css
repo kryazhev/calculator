@@ -1,0 +1,10 @@
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f8f9fa; color: #333; }
+header { background: #343a40; color: white; padding: 1rem; }
+header nav a { color: #ddd; margin-right: 1rem; text-decoration: none; }
+main { padding: 1rem; }
+.todo-item { padding: .5rem 0; }
+.todo-item button { border: none; background: transparent; cursor: pointer; font-size: 1rem; }
+.flashes { list-style: none; padding: 0; }
+.flash.success { color: green; }
+.flash.error { color: red; }
+form input { padding: .4rem; margin-right: .5rem; }

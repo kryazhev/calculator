@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="calc" role="application" aria-label="Калькулятор">
+      <div class="display" id="display" aria-live="polite">0</div>
+      <div class="conversions" id="conversions" aria-live="polite" aria-label="Перевод числа в другие системы счисления">
+        <div class="conv-row"><span class="conv-label">BIN</span><span class="conv-value" id="conv-bin">0</span></div>
+        <div class="conv-row"><span class="conv-label">OCT</span><span class="conv-value" id="conv-oct">0</span></div>
+        <div class="conv-row"><span class="conv-label">DEC</span><span class="conv-value" id="conv-dec">0</span></div>
+        <div class="conv-row"><span class="conv-label">HEX</span><span class="conv-value" id="conv-hex">0</span></div>
+      </div>
+      <div class="keys" role="group" aria-label="Кнопки калькулятора">
+        <button class="btn wide" data-action="clear" aria-label="Очистить">C</button>
+        <button class="btn" data-action="back" aria-label="Удалить">⌫</button>
+        <button class="btn" data-value="/">÷</button>
+
+        <button class="btn" data-value="7">7</button>
+        <button class="btn" data-value="8">8</button>
+        <button class="btn" data-value="9">9</button>
+        <button class="btn" data-value="*">×</button>
+
+        <button class="btn" data-value="4">4</button>
+        <button class="btn" data-value="5">5</button>
+        <button class="btn" data-value="6">6</button>
+        <button class="btn" data-value="-">−</button>
+
+        <button class="btn" data-value="1">1</button>
+        <button class="btn" data-value="2">2</button>
+        <button class="btn" data-value="3">3</button>
+        <button class="btn" data-value="+">+</button>
+
+        <button class="btn" data-value="0">0</button>
+        <button class="btn" data-value=".">.</button>
+        <button class="btn" data-action="equals" aria-label="Равно">=</button>
+      </div>
+      <p class="help">Поддерживается ввод с клавиатуры. Формат: цифры, + − * /, скобки, десятичные точки.</p>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

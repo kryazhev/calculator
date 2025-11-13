@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="add-todo">
+    <h2>Add Todo</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class="flashes">
+        {% for category, message in messages %}
+          <li class="flash {{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form method="post" action="{{ url_for('add') }}">
+        <label for="title">Title</label>
+        <input id="title" name="title" placeholder="e.g. Buy milk">
+        <button type="submit">Add</button>
+    </form>
+</section>
+{% endblock %}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Todo Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+
+    <body>
+        <header>
+            <h1>Todo Application</h1>
+            <nav>
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('add') }}">Add Todo</a>
+            </nav>
+        </header>
+        <main>
+                {% block content %}
+            <section id="todo-list">
+                <h2>Your Todos</h2>
+                {% if todo_list %}
+                    <ul>
+                    {% for todo in todo_list %}
+                        <li class="todo-item">
+                            <form method="post" action="{{ url_for('toggle', todo_id=todo.id) }}" style="display:inline">
+                                <button type="submit">{% if todo.completed %}✅{% else %}⬜{% endif %}</button>
+                            </form>
+                            <strong>{{ todo.title }}</strong>
+                            {% if todo.completed %}
+                                <span class="status">(completed)</span>
+                            {% else %}
+                                <span class="status">(open)</span>
+                            {% endif %}
+                            <form method="post" action="{{ url_for('delete', todo_id=todo.id) }}" style="display:inline;margin-left:10px">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No todos yet. Add one <a href="/add">here</a>.</p>
+                {% endif %}
+            {% endblock %}
+        </main>
+        <footer>
+            <p>&copy; 2025 Todo Application</p>
+        </footer>
+    </body>
+</html>
